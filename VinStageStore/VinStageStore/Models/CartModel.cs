@@ -8,7 +8,7 @@ namespace VinStageStore.Models
 {
 	public class CartModel
 	{
-
+		//test
 		//lấy thông tin sản phẩm
 		public Product Product { get; set; }
 
