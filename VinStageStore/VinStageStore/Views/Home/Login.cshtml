@@ -1,0 +1,31 @@
+﻿@model VinStageStore.Context.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="login">
+    <div class="container">
+        <h2>Đăng nhập</h2>
+
+        <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.TextBoxFor(model => model.UserName, "", new { @class = "form-control", @placeholder = "Tài khoản đăng nhập..." })
+
+
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Mật khẩu" })
+                <div class="forgot">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <input type="submit" name="submit" value="Đăng nhập">
+            }
+        </div>
+        <h4>Bạn chưa có tài khoản ?</h4>
+        <p>@Html.ActionLink("Đăng kí ở đây", "Register", "Home") (Or) Trở lại  @Html.ActionLink("Về trang chủ", "Index", "Home")</p>
+    </div>
+</div>
+
+
