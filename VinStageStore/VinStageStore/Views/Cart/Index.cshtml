@@ -38,12 +38,12 @@
                 <table class="timetable_sub">
                     <thead>
                         <tr>
-                            <th>SL No.</th>
-                            <th>Product</th>
-                            <th>Quality</th>
-                            <th>Product Name</th>
+                            <th>STT</th>
+                            <th>Hình ảnh</th>
+                            <th>Số lượng</th>
+                            <th>Tên sản phẩm</th>
 
-                            <th>Price</th>
+                            <th>Giá</th>
                             <th>Remove</th>
                         </tr>
                     </thead>
@@ -51,7 +51,6 @@
                     {
 
                         int sl = 0;
-
                         foreach (var item in Model)
                         {
                             sl++;
@@ -102,13 +101,19 @@
         @if (Session["count"] != null)
         {
             <div class="checkout-left-basket">
-                <h4>Continue to basket</h4>
+                <h4>Mua hàng</h4>
                 <ul>
-                    <li>Product1 <i>-</i> <span>$15.00 </span></li>
-                    <li>Product2 <i>-</i> <span>$25.00 </span></li>
-                    <li>Product3 <i>-</i> <span>$29.00 </span></li>
-                    <li>Total Service Charges <i>-</i> <span>$15.00</span></li>
-                    <li>Total <i>-</i> <span>$84.00</span></li>
+                    @{
+                        decimal total = 0;
+                    }
+
+                    @foreach (var item in Model)
+                    {
+                        decimal itemTotal = (item.Product.PriceSale ?? 0) * item.Quantity;
+                        total += itemTotal;
+                    }
+
+                    <li>Đơn hàng của bạn hết: <i>-</i> <span>@total.ToString("C") đ</span></li>
                 </ul>
                 <a style="margin-left:90px" href="@Url.Action("Index" , "Payment")">Thanh Toán</a>
             </div>
