@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="952d0b3429ec41229b8e5a2d04921c1c" Name="Diagram1">
-        <EntityTypeShape EntityType="VinStageShopModel.Category" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+      <Diagram DiagramId="ae062cc1902b474c980366df0689f5f7" Name="Diagram1">
+        <EntityTypeShape EntityType="VinStageShopModel.Category" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="VinStageShopModel.OrderItem" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VinStageShopModel.Order" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="VinStageShopModel.Payment" Width="1.5" PointX="7.5" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="VinStageShopModel.Product" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="VinStageShopModel.Review" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VinStageShopModel.Role" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VinStageShopModel.Shipping" Width="1.5" PointX="7.5" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="VinStageShopModel.User" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="VinStageShopModel.Wishlist" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinStageShopModel.Order" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinStageShopModel.Payment" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinStageShopModel.Product" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinStageShopModel.Review" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinStageShopModel.Role" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinStageShopModel.Shipping" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinStageShopModel.User" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinStageShopModel.Wishlist" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
         <AssociationConnector Association="VinStageShopModel.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="VinStageShopModel.FK_OrderItems_Orders" ManuallyRouted="false" />
         <AssociationConnector Association="VinStageShopModel.FK_OrderItems_Products" ManuallyRouted="false" />

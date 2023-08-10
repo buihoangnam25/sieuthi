@@ -14,7 +14,7 @@ namespace VinStageStore.Context
 	using System.ComponentModel.DataAnnotations.Schema;
 
 	public partial class Product
-    {
+	{
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
@@ -43,9 +43,10 @@ namespace VinStageStore.Context
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Wishlist> Wishlists { get; set; }
 
-        // tạo biến để có thể chọn file
-        [NotMapped]
-        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
+
+		// tạo biến để có thể chọn file
+		[NotMapped]
+		public System.Web.HttpPostedFileBase ImageUpload { get; set; }
 
 		[NotMapped]
 		public System.Web.HttpPostedFileBase ImageDetailUpload { get; set; }

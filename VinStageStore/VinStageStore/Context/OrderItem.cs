@@ -18,7 +18,6 @@ namespace VinStageStore.Context
         public Nullable<int> OrderId { get; set; }
         public Nullable<int> ProductId { get; set; }
         public Nullable<int> Quantity { get; set; }
-        public Nullable<decimal> SubTotal { get; set; }
     
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }

@@ -19,7 +19,6 @@
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -29,7 +28,8 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
-          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

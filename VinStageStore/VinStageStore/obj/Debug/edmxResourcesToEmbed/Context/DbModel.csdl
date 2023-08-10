@@ -19,7 +19,6 @@
     <Property Name="OrderId" Type="Int32" />
     <Property Name="ProductId" Type="Int32" />
     <Property Name="Quantity" Type="Int32" />
-    <Property Name="SubTotal" Type="Decimal" Precision="18" Scale="0" />
     <NavigationProperty Name="Order" Relationship="Self.FK_OrderItems_Orders" FromRole="OrderItems" ToRole="Orders" />
     <NavigationProperty Name="Product" Relationship="Self.FK_OrderItems_Products" FromRole="OrderItems" ToRole="Products" />
   </EntityType>
@@ -30,7 +29,8 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserId" Type="Int32" />
     <Property Name="OrderDate" Type="DateTime" Precision="0" />
-    <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
     <NavigationProperty Name="OrderItems" Relationship="Self.FK_OrderItems_Orders" FromRole="Orders" ToRole="OrderItems" />
     <NavigationProperty Name="User" Relationship="Self.FK_Orders_Users" FromRole="Orders" ToRole="Users" />
     <NavigationProperty Name="Payments" Relationship="Self.FK_Payment_Orders" FromRole="Orders" ToRole="Payment" />
