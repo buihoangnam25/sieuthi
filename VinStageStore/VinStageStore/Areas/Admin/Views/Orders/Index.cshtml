@@ -1,0 +1,79 @@
+﻿@model IEnumerable<VinStageStore.Context.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section id="main-content">
+    <section class="wrapper">
+        <div class="table-agile-info">
+
+            <h2>Đơn đặt hàng</h2>
+
+            <table class="table">
+                <tr>
+                    <th>
+                        Tên
+                    </th>
+                    <th>
+                        Khách hàng
+                    </th>
+                    <th>
+                        Ngày tạo
+                    </th>
+
+                    <th>
+                        Trạng thái
+                    </th>
+
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderDate)
+                        </td>
+                        <td>
+                            @{
+                                string statusText = "";
+                                if (item.Status == 1)
+                                {
+                                    statusText = "Chờ xác nhận";
+                                }
+                                else if (item.Status == 2)
+                                {
+                                    statusText = "Đang giao hàng";
+                                }
+                                else if(item.Status == 3)
+                                {
+                                    statusText = "Đã hoàn thành";
+                                }
+                                else if (item.Status == 4)
+                                {
+                                    statusText = "Đã hủy";
+                                }
+
+                            }
+
+                            @statusText
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </section>
+</section>
