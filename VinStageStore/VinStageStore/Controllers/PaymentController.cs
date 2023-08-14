@@ -25,6 +25,7 @@ namespace VinStageStore.Controllers
 
                 //gắn dữ liệu vào tb order
                 Order objOrder = new Order();
+                objOrder.Name = "Đơn hàng -" + objOrder .Id+ DateTime.Now.ToString("yyyyMMddHHss");
                 objOrder.Name = "Đơn hàng -" + DateTime.Now.ToString("yyyyMMddHHss");
                 objOrder.UserId = int.Parse(Session["idUser"].ToString());
                 objOrder.OrderDate = DateTime.Now;
