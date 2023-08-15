@@ -15,7 +15,7 @@
             <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
                 <ul id="myTab" class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#expeditions" id="expeditions-tab" role="tab" data-toggle="tab" aria-controls="expeditions" aria-expanded="true">Sản phẩm được đề xuất</a></li>
-                    <li role="presentation"><a href="#tours" role="tab" id="tours-tab" data-toggle="tab" aria-controls="tours">GIẢM GIÁ TRONG NGÀY</a></li>
+                    <li role="presentation"><a href="#tours" role="tab" id="tours-tab" data-toggle="tab" aria-controls="tours">Đang được giảm giá</a></li>
                 </ul>
                 <div id="myTabContent" class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active" id="expeditions" aria-labelledby="expeditions-tab">
@@ -24,27 +24,25 @@
                             <p class="w3l-ad">We've pulled together all our advertised offers into one place, so you won't miss out on a great deal.</p>
                         </div>
                         <div class="agile_top_brands_grids">
-                            @foreach (var item in Model.ListProduct.Where(n => n.TypeId == 2).Take(3))
+                            @foreach (var item in Model.ListProduct.Where(n => n.TypeId == 2))
                             {
                                 <div class="col-md-4 top_brand_left">
                                     <div class="hover14 column">
                                         <div class="agile_top_brand_left_grid">
-                                            <div class="agile_top_brand_left_grid_pos">
-                                                <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
-                                            </div>
+
+                                            @if (item.Favourite == true)
+                                            {
+                                                <div class="agile_top_brand_left_grid_pos">
+                                                    <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                                </div>
+                                            }
+
                                             <div class="agile_top_brand_left_grid1">
                                                 <figure>
                                                     <div class="snipcart-item block">
                                                         <div class="snipcart-thumb">
                                                             <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Id})"><img title=" " alt=" " src="~/Content/images/@item.ImageUrl" /></a>
                                                             <p>@item.Name</p>
-                                                            <div class="stars">
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
-                                                            </div>
                                                             <h4>@item.PriceSale <span>@item.Price</span></h4>
                                                         </div>
                                                         <div class="snipcart-details top_brand_home_details">
@@ -59,58 +57,7 @@
                                                                     <input type="hidden" name="currency_code" value="USD" />
                                                                     <input type="hidden" name="return" value=" " />
                                                                     <input type="hidden" name="cancel_return" value=" " />
-                                                                    <input type="submit" name="submit" value="Add to cart" addtocart class="button" />
-                                                                    @*<a href="@Url.Action("Add", "Cart" , new { Id = item.Id })" id="addtocart" class=""button></a>*@
-                                                                </fieldset>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="agile_top_brands_grids">
-                            @foreach (var item in Model.ListProduct.Where(n => n.TypeId == 2).Take(3))
-                            {
-                                <div class="col-md-4 top_brand_left">
-                                    <div class="hover14 column">
-                                        <div class="agile_top_brand_left_grid">
-                                            <div class="agile_top_brand_left_grid_pos">
-                                                <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
-                                            </div>
-                                            <div class="agile_top_brand_left_grid1">
-                                                <figure>
-                                                    <div class="snipcart-item block">
-                                                        <div class="snipcart-thumb">
-                                                            <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Id})"><img title=" " alt=" " src="~/Content/images/@item.ImageUrl" /></a>
-                                                            <p>@item.Name</p>
-                                                            <div class="stars">
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
-                                                            </div>
-                                                            <h4>@item.PriceSale<span>@item.Price</span></h4>
-                                                        </div>
-                                                        <div class="snipcart-details top_brand_home_details">
-                                                            <form action="#" method="post">
-                                                                <fieldset>
-                                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                                    <input type="hidden" name="add" value="1" />
-                                                                    <input type="hidden" name="business" value=" " />
-                                                                    <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
-                                                                    <input type="hidden" name="amount" value="35.99" />
-                                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                                    <input type="hidden" name="return" value=" " />
-                                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                                    <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Id})" class="button">Xem sản phẩm</a>
                                                                 </fieldset>
                                                             </form>
                                                         </div>
@@ -131,7 +78,7 @@
                             <p class="w3l-ad">We've pulled together all our advertised offers into one place, so you won't miss out on a great deal.</p>
                         </div>
                         <div class="agile_top_brands_grids">
-                            @foreach (var item in Model.ListProduct.Where(n => n.TypeId == 1).Take(3))
+                            @foreach (var item in Model.ListProduct.Where(n => n.TypeId == 1))
                             {
                                 <div class="col-md-4 top_brand_left">
                                     <div class="hover14 column">
@@ -145,13 +92,6 @@
                                                         <div class="snipcart-thumb">
                                                             <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Id})"><img title=" " alt=" " src="~/Content/images/@item.ImageUrl" /></a>
                                                             <p>@item.Name</p>
-                                                            <div class="stars">
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
-                                                            </div>
                                                             <h4>@item.Price</h4>
                                                         </div>
                                                         <div class="snipcart-details top_brand_home_details">
@@ -166,57 +106,7 @@
                                                                     <input type="hidden" name="currency_code" value="USD" />
                                                                     <input type="hidden" name="return" value=" " />
                                                                     <input type="hidden" name="cancel_return" value=" " />
-                                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                                </fieldset>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="agile_top_brands_grids">
-                            @foreach (var item in Model.ListProduct.Where(n => n.TypeId == 1).Take(3))
-                            {
-                                <div class="col-md-4 top_brand_left">
-                                    <div class="hover14 column">
-                                        <div class="agile_top_brand_left_grid">
-                                            <div class="agile_top_brand_left_grid_pos">
-                                                <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
-                                            </div>
-                                            <div class="agile_top_brand_left_grid1">
-                                                <figure>
-                                                    <div class="snipcart-item block">
-                                                        <div class="snipcart-thumb">
-                                                            <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Id})"><img title=" " alt=" " src="~/Content/images/@item.ImageUrl" /></a>
-                                                            <p>@item.Name</p>
-                                                            <div class="stars">
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
-                                                            </div>
-                                                            <h4>@item.PriceSale <span>@item.Price</span></h4>
-                                                        </div>
-                                                        <div class="snipcart-details top_brand_home_details">
-                                                            <form action="#" method="post">
-                                                                <fieldset>
-                                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                                    <input type="hidden" name="add" value="1" />
-                                                                    <input type="hidden" name="business" value=" " />
-                                                                    <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
-                                                                    <input type="hidden" name="amount" value="20.99" />
-                                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                                    <input type="hidden" name="return" value=" " />
-                                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                                    <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Id})" class="button">Xem sản phẩm</a>
                                                                 </fieldset>
                                                             </form>
                                                         </div>
@@ -267,7 +157,7 @@
     <div class="container">
         <h3>SẢN PHẨM ĐƯỢC YÊU THÍCH NHẤT</h3>
         <div class="agile_top_brands_grids">
-            @foreach (var item in Model.ListProduct.Where(n => n.Favourite == true).Take(4))
+            @foreach (var item in Model.ListProduct.Where(n => n.Favourite == true))
             {
                 <div class="col-md-3 top_brand_left-1">
                     <div class="hover14 column">
@@ -285,13 +175,6 @@
                                         <div class="snipcart-thumb">
                                             <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Id})"><img title=" " alt=" " src="~/Content/images/@item.ImageUrl"></a>
                                             <p>@item.Name</p>
-                                            <div class="stars">
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
-                                            </div>
                                             <h4>@item.PriceSale<span>@item.Price</span></h4>
                                         </div>
                                         <div class="snipcart-details top_brand_home_details">
@@ -306,7 +189,7 @@
                                                     <input type="hidden" name="currency_code" value="USD">
                                                     <input type="hidden" name="return" value=" ">
                                                     <input type="hidden" name="cancel_return" value=" ">
-                                                    <input type="submit" name="submit" value="Add to cart" class="button">
+                                                    <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Id})" class="button">Xem sản phẩm</a>
                                                 </fieldset>
                                             </form>
                                         </div>

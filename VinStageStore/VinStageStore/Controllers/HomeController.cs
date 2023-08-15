@@ -16,8 +16,8 @@ namespace VinStageStore.Controllers
 		public ActionResult Index()
 		{
 			HomeModel homeModel = new HomeModel();
-			homeModel.ListCategory =objModel.Categories.ToList();
-			homeModel.ListProduct =objModel.Products.ToList();	
+			homeModel.ListCategory = objModel.Categories.ToList();
+			homeModel.ListProduct = objModel.Products.ToList();	
 			return View(homeModel);
 		}
 
