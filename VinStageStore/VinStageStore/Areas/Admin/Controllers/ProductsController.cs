@@ -40,8 +40,8 @@ namespace VinStageStore.Areas.Admin.Controllers
 			ViewBag.CurrentFilter = SearchString;
 
 
-			int pageSize = 6;
-			int pageNumber = (page ?? 1);
+			int pageSize = 6; // Số sản phẩm trên mỗi trang
+			int pageNumber = (page ?? 1); // Trang hiện tại (mặc định là 1)
 
 			//sắp xếp sản phẩm theo id , những id mới tạo sẽ lên trước
 			lstProduct =lstProduct.OrderByDescending(n => n.Id).ToList();
