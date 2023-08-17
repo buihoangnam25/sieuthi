@@ -1,4 +1,4 @@
-﻿
+﻿@model VinStageStore.Models.OrderUser
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -13,9 +13,9 @@
                         <i class="fa fa-eye"> </i>
                     </div>
                     <div class="col-md-8 market-update-left">
-                        <h4>Visitors</h4>
-                        <h3>13,500</h3>
-                        <p>Other hand, we denounce</p>
+                        <h4>Đơn hàng đã hủy</h4>
+                        <h3>@Model.ListOrder.Where(n => n.Status == 4).Count()</h3>
+                        <p>số lượng đơn hàng đã hủy</p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -26,9 +26,9 @@
                         <i class="fa fa-users"></i>
                     </div>
                     <div class="col-md-8 market-update-left">
-                        <h4>Users</h4>
-                        <h3>1,250</h3>
-                        <p>Other hand, we denounce</p>
+                        <h4>Người dùng</h4>
+                        <h3>@Model.User</h3>
+                        <p>Số lượng người dùng</p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -39,9 +39,41 @@
                         <i class="fa fa-usd"></i>
                     </div>
                     <div class="col-md-8 market-update-left">
-                        <h4>Sales</h4>
-                        <h3>1,500</h3>
-                        <p>Other hand, we denounce</p>
+                        @*@if (Model != null)
+                            {
+                                decimal totalRevenue = 0;
+                                <h4>Doanh thu</h4>
+                                foreach (var item in Model.ListOrder)
+                                {
+                                    if (item.Status == 3)
+                                    {
+                                        decimal revenue = item.TotalPrice;
+                                        totalRevenue += revenue;
+                                    }
+
+                                }
+                            }*@
+                        @if (Model != null)
+                        {
+                            decimal totalRevenue = 0;
+                            <h4>Doanh thu</h4>
+                            foreach (var item in Model.ListOrder)
+                            {
+                                if (item.Status == 3)
+                                {
+                                    decimal? revenueNullable = item.TotalPrice;
+                                    if (revenueNullable.HasValue)
+                                    {
+                                        decimal revenue = revenueNullable.Value;
+                                        totalRevenue += revenue;
+                                    }
+                                }
+                            }
+                            @*<h3>@totalRevenue VND</h3>*@
+                            <h3>@string.Format("{0:#,0}", totalRevenue) VND</h3>
+                        }
+
+                        <p>Là doanh thu đạt được</p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -52,9 +84,9 @@
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </div>
                     <div class="col-md-8 market-update-left">
-                        <h4>Orders</h4>
-                        <h3>1,500</h3>
-                        <p>Other hand, we denounce</p>
+                        <h4>Đơn hàng chờ xác nhận</h4>
+                        <h3>@Model.ListOrder.Where(n => n.Status == 1).Count() </h3>
+                        <p>đơn hàng đang chờ bạn xác nhận</p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
