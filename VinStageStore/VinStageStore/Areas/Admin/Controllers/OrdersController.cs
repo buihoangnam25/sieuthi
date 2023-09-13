@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using VinStageStore.Context;
+using VinStageStore.Models;
 
 namespace VinStageStore.Areas.Admin.Controllers
 {
@@ -21,8 +22,25 @@ namespace VinStageStore.Areas.Admin.Controllers
             return View(orders.ToList());
         }
 
-        // GET: Admin/Orders/Edit/5
-        public ActionResult Edit(int? id)
+		public ActionResult Details(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+
+			var order = db.Orders.Find(id);
+            List<OrderItem> OrderItems = db.OrderItems.Where(n => n.OrderId == order.Id).ToList();
+            
+            OrderItemOrder item =  new OrderItemOrder();
+            item.Order = order;
+            item.ListOrderItem = OrderItems;
+
+
+			return View(item);
+		}
+		// GET: Admin/Orders/Edit/5
+		public ActionResult Edit(int? id)
         {
             if (id == null)
             {
