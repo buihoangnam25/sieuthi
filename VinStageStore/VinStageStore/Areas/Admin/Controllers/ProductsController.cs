@@ -69,6 +69,7 @@ namespace VinStageStore.Areas.Admin.Controllers
 		public ActionResult Create()
 		{
 			ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name");
+			ViewBag.SupplierId = new SelectList(db.Suppliers, "Id", "Name");
 			return View();
 		}
 
@@ -109,10 +110,6 @@ namespace VinStageStore.Areas.Admin.Controllers
 			{
 				return RedirectToAction("Index");
 			}
-
-
-			ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
-			return View(product);
 		}
 
 		// GET: Admin/Products/Edit/5
@@ -128,12 +125,10 @@ namespace VinStageStore.Areas.Admin.Controllers
 				return HttpNotFound();
 			}
 			ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
+			ViewBag.SupplierId = new SelectList(db.Suppliers, "Id", "Name", product.SupplierId);
 			return View(product);
 		}
 
-		// POST: Admin/Products/Edit/5
-		// To protect from overposting attacks, enable the specific properties you want to bind to, for 
-		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public ActionResult Edit(Product product)
@@ -168,10 +163,6 @@ namespace VinStageStore.Areas.Admin.Controllers
 			{
 				return RedirectToAction("Index");
 			}
-
-
-			ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
-			return View(product);
 		}
 
 		// GET: Admin/Products/Delete/5

@@ -79,9 +79,9 @@ namespace VinStageStore.Controllers
 			if (ModelState.IsValid)
 			{
 
-
 				var f_password = GetMD5(password);
 				var data = objModel.Users.Where(s => s.UserName.Equals(username) && s.Password.Equals(f_password)).ToList();
+				
 				if (data.Count() > 0)
 				{
 					//add session
@@ -96,8 +96,7 @@ namespace VinStageStore.Controllers
 				}
 				else
 				{
-					ViewBag.error = "Login failed";
-					return RedirectToAction("Login");
+					ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không chính xác.");
 				}
 			}
 			return View();

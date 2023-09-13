@@ -136,55 +136,60 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderItemsController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrdersController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SuppliersController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Context\Category.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\DbModel.Context.cs">
+    <Compile Include="Context\dbModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DbModel.Context.tt</DependentUpon>
+      <DependentUpon>dbModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\DbModel.cs">
+    <Compile Include="Context\dbModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\DbModel.Designer.cs">
+    <Compile Include="Context\dbModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DbModel.edmx</DependentUpon>
+      <DependentUpon>dbModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Context\Order.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\OrderItem.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Payment.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Product.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Review.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Role.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Shipping.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Supplier.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\User.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Wishlist.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CollectionController.cs" />
@@ -193,11 +198,13 @@
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CartModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\OrderUser.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\Products.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -328,9 +335,12 @@
     <Content Include="Content\images\hh6.png" />
     <Content Include="Content\images\hh7.png" />
     <Content Include="Content\images\hh8.png" />
+    <Content Include="Content\images\hh8_202308090424.png" />
     <Content Include="Content\images\hh9.png" />
+    <Content Include="Content\images\hot.png" />
     <Content Include="Content\images\icon1.png" />
     <Content Include="Content\images\icon2.png" />
+    <Content Include="Content\images\nestlelogo.jpg" />
     <Content Include="Content\images\offer.png" />
     <Content Include="Content\images\p2.jpg" />
     <Content Include="Content\images\p3.jpg" />
@@ -347,13 +357,18 @@
     <Content Include="Content\images\pf1.png" />
     <Content Include="Content\images\pf2.png" />
     <Content Include="Content\images\pf3.png" />
+    <Content Include="Content\images\pf3_202308090442.png" />
     <Content Include="Content\images\pf4.png" />
     <Content Include="Content\images\pf5.png" />
+    <Content Include="Content\images\pf5_202308090352.png" />
+    <Content Include="Content\images\pf5_202308090352_202308090435.png" />
     <Content Include="Content\images\pf6.png" />
     <Content Include="Content\images\pf7.png" />
     <Content Include="Content\images\pf8.png" />
     <Content Include="Content\images\pf9.png" />
     <Content Include="Content\images\si1.jpg" />
+    <Content Include="Content\images\si1_202308090353.jpg" />
+    <Content Include="Content\images\si1_202308090435.jpg" />
     <Content Include="Content\images\star.png" />
     <Content Include="Content\images\star1.png" />
     <Content Include="Content\images\t1.jpg" />
@@ -369,15 +384,15 @@
     <Content Include="Content\js\responsiveslides.min.js" />
     <Content Include="Content\js\skdslider.min.js" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="Context\DbModel.Context.tt">
+    <Content Include="Context\dbModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DbModel.edmx</DependentUpon>
-      <LastGenOutput>DbModel.Context.cs</LastGenOutput>
+      <DependentUpon>dbModel.edmx</DependentUpon>
+      <LastGenOutput>dbModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Context\DbModel.tt">
+    <Content Include="Context\dbModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DbModel.edmx</DependentUpon>
-      <LastGenOutput>DbModel.cs</LastGenOutput>
+      <DependentUpon>dbModel.edmx</DependentUpon>
+      <LastGenOutput>dbModel.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -417,13 +432,6 @@
     <Content Include="Areas\Admin\Views\Products\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Index.cshtml" />
-    <EntityDeploy Include="Context\DbModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DbModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Context\DbModel.edmx.diagram">
-      <DependentUpon>DbModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\Orders\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Orders\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Orders\Index.cshtml" />
@@ -432,6 +440,23 @@
     <Content Include="Areas\Admin\Views\OrderItems\Details.cshtml" />
     <Content Include="Areas\Admin\Views\OrderItems\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\OrderItems\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
+    <EntityDeploy Include="Context\dbModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Context\dbModel.edmx.diagram">
+      <DependentUpon>dbModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\Suppliers\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Suppliers\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Suppliers\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Suppliers\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Suppliers\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -463,6 +488,8 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
     <Content Include="Views\Reviews\Create.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

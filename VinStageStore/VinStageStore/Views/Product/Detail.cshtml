@@ -50,7 +50,7 @@
                 </div>
                 <div class="snipcart-item block">
                     <div class="snipcart-thumb agileinfo_single_right_snipcart">
-                        <h4 class="m-sing">@Model.objProductDetail.PriceSale VND<span>@Model.objProductDetail.Price VND</span></h4>
+                        <h4 class="m-sing">@string.Format("{0:#,0}" , Model.objProductDetail.Price ) VND</h4>
                     </div>
 
                     <div style="margin-bottom: 10px">
@@ -68,7 +68,7 @@
                         </form>
                     </div>
                     <div class="snipcart-details agileinfo_single_right_details">
-                        @Html.ActionLink("Đánh giá sản phẩm" , "Create" , "Reviews", new { Id = Model.objProductDetail.Id })
+                        <a href="@Url.Action("Create" ,"Reviews" , new {Id = Model.objProductDetail.Id })" class="button">Đánh giá sản phẩm</a>
                     </div>
                 </div>
 

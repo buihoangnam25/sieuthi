@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,32 @@ namespace VinStageStore.Areas.Admin.Controllers
         private VinStageShopEntities db = new VinStageShopEntities();
 
         // GET: Admin/Users
-        public ActionResult Index()
+        public ActionResult Index(string curentFilter, string SearchString, int? page)
         {
-            var users = db.Users.Include(u => u.Role);
-            return View(users.ToList());
+            var lstUser = new List<User>();
+			if (SearchString != null)
+			{
+				page = 1;
+			}
+			else
+			{
+				SearchString = curentFilter;
+			}
+			if (!string.IsNullOrEmpty(SearchString))
+			{
+				//lấy sản phẩm theo khóa SearchString
+				lstUser = db.Users.Where(n => n.FullName.Contains(SearchString)).ToList();
+			}
+			else
+			{
+				lstUser = db.Users.ToList();
+			}
+			ViewBag.CurrentFilter = SearchString;
+			lstUser = lstUser.OrderByDescending(n => n.Id).ToList();
+			int pageSize = 6; 
+			int pageNumber = (page ?? 1);
+
+            return View(lstUser.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Admin/Users/Details/5

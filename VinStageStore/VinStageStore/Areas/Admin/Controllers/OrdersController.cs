@@ -42,7 +42,7 @@ namespace VinStageStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,UserId,OrderDate,Name,Status")] Order order)
+        public ActionResult Edit([Bind(Include = "Id,UserId,OrderDate,Name,TotalPrice,Status")] Order order)
         {
             if (ModelState.IsValid)
             {

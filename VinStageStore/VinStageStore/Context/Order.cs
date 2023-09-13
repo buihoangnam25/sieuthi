@@ -27,6 +27,7 @@ namespace VinStageStore.Context
         public Nullable<System.DateTime> OrderDate { get; set; }
         public string Name { get; set; }
         public Nullable<int> Status { get; set; }
+        public Nullable<decimal> TotalPrice { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderItem> OrderItems { get; set; }

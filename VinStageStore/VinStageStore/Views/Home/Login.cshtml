@@ -17,6 +17,7 @@
 
 
                 @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Mật khẩu" })
+                @Html.ValidationSummary("", new { @class = "text-danger" })
                 <div class="forgot">
                     <a href="#">Forgot Password?</a>
                 </div>

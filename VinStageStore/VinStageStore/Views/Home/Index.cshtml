@@ -33,7 +33,7 @@
                                             @if (item.Favourite == true)
                                             {
                                                 <div class="agile_top_brand_left_grid_pos">
-                                                    <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                                    <img src="~/Content/images/hot.png" alt=" " class="img-responsive" />
                                                 </div>
                                             }
 
@@ -43,7 +43,7 @@
                                                         <div class="snipcart-thumb">
                                                             <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Id})"><img title=" " alt=" " src="~/Content/images/@item.ImageUrl" /></a>
                                                             <p>@item.Name</p>
-                                                            <h4>@item.PriceSale <span>@item.Price</span></h4>
+                                                            <h4>@item.Price</h4>
                                                         </div>
                                                         <div class="snipcart-details top_brand_home_details">
                                                             <form action="#" method="post">
@@ -83,16 +83,19 @@
                                 <div class="col-md-4 top_brand_left">
                                     <div class="hover14 column">
                                         <div class="agile_top_brand_left_grid">
-                                            <div class="agile_top_brand_left_grid_pos">
-                                                <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
-                                            </div>
+                                            @if (item.Favourite == true)
+                                            {
+                                                <div class="agile_top_brand_left_grid_pos">
+                                                    <img src="~/Content/images/hot.png" alt=" " class="img-responsive" />
+                                                </div>
+                                            }
                                             <div class="agile_top_brand_left_grid1">
                                                 <figure>
                                                     <div class="snipcart-item block">
                                                         <div class="snipcart-thumb">
                                                             <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Id})"><img title=" " alt=" " src="~/Content/images/@item.ImageUrl" /></a>
                                                             <p>@item.Name</p>
-                                                            <h4>@item.Price</h4>
+                                                            <h4>@item.PriceSale<span>@item.Price</span></h4>
                                                         </div>
                                                         <div class="snipcart-details top_brand_home_details">
                                                             <form action="#" method="post">
@@ -175,7 +178,15 @@
                                         <div class="snipcart-thumb">
                                             <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Id})"><img title=" " alt=" " src="~/Content/images/@item.ImageUrl"></a>
                                             <p>@item.Name</p>
-                                            <h4>@item.PriceSale<span>@item.Price</span></h4>
+                                            @if (item.TypeId == 1)
+                                            {
+                                                <h4>@item.PriceSale<span>@item.Price</span></h4>
+                                            }
+                                            else
+                                            {
+                                                <h4>@item.Price</h4>
+                                            }
+
                                         </div>
                                         <div class="snipcart-details top_brand_home_details">
                                             <form action="#" method="post">

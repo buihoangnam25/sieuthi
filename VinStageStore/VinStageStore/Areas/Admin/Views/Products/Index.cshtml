@@ -42,10 +42,13 @@
                         Sản Phẩm Yêu Thích
                     </th>
                     <th>
-                        Loại
+                        Kiểu
                     </th>
                     <th>
                         Ảnh Chi Tiết
+                    </th>
+                    <th>
+                        Nhà cung cấp
                     </th>
                     <th></th>
                 </tr>
@@ -72,10 +75,24 @@
                             @Html.DisplayFor(modelItem => item.Favourite)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.TypeId)
+                            @if (item.TypeId == 1)
+                            {
+                                @Html.Raw("Giảm giá")
+                            }
+                            else if (item.TypeId == 2)
+                            {
+                                @Html.Raw("Đề xuất")
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.TypeId)
+                            }
                         </td>
                         <td>
                             <img style="height:100px ; width:70px" src="~/Content/images/@item.ImageDetail" alt="Image" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SupplierId)
                         </td>
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

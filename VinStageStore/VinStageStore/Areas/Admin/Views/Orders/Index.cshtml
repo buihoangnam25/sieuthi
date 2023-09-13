@@ -31,6 +31,9 @@
                     <th>
                         Trạng thái
                     </th>
+                    <th>
+                        Giá trị đơn hàng
+                    </th>
 
                     <th></th>
                 </tr>
@@ -78,6 +81,9 @@
                             }
 
                             @statusText
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalPrice) VND
                         </td>
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

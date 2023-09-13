@@ -97,32 +97,37 @@
             <h2>Không có sản phẩm trong giỏ hàng</h2>
         }
 
-    <div class="checkout-left">
-        @if (Session["count"] != null)
-        {
-            <div class="checkout-left-basket">
-                <h4>Mua hàng</h4>
-                <ul>
-                    @{
-                        decimal total = 0;
-                    }
+        <div class="checkout-left">
+            @if (Session["count"] != null)
+            {
+                <div class="checkout-left-basket">
+                    <h4>Mua hàng</h4>
+                    <ul>
+                        @{
+                            decimal total = 0;
+                        }
 
-                    @foreach (var item in Model)
-                    {
-                        decimal itemTotal = (item.Product.PriceSale ?? 0) * item.Quantity;
-                        total += itemTotal;
-                    }
+                        @foreach (var item in Model)
+                        {
+                            decimal itemTotal = (item.Product.PriceSale ?? 0) * item.Quantity;
+                            total += itemTotal;
+                        }
 
-                    <li>Đơn hàng của bạn hết: <i>-</i> <span>@total.ToString("C") đ</span></li>
-                </ul>
-                <a style="margin-left:90px" href="@Url.Action("Index" , "Payment")">Đặt hàng</a>
+                        <li>Đơn hàng của bạn hết: <i>-</i> <span>@total.ToString("C") đ</span></li>
+                    </ul>
+                    <a style="margin-left:90px" href="@Url.Action("Index" , "Payment")">Đặt hàng</a>
+                </div>
+                <div style=" padding-top: 17px; margin-left: 333px;">
+                    <h4>@Html.ActionLink("Xem thông tin nhận hàng", "Index", "User")</h4>
+
+                </div>
+
+            }
+            <div class="checkout-right-basket">
+                <a href="~/Collection/ProductCategory"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Quay lại mua sắm</a>
             </div>
-        }
-        <div class="checkout-right-basket">
-            <a href="~/Collection/ProductCategory"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Quay lại mua sắm</a>
+            <div class="clearfix"> </div>
         </div>
-        <div class="clearfix"> </div>
-    </div>
 
     </div>
 </div>

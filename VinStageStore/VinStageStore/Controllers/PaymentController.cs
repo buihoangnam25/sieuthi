@@ -22,14 +22,22 @@ namespace VinStageStore.Controllers
             {
                 //lấy thông tin giỏ hàng từ sesion
                 var lstCart = (List<CartModel>)Session["cart"];
+                decimal totalPrice = 0;
+                decimal totaItem = 0;
+                foreach (var item in lstCart) 
+                    totaItem = decimal.Parse((item.Product.Price * item.Quantity).ToString());
+
+					totalPrice += decimal.Parse(totaItem.ToString());
+
 
                 //gắn dữ liệu vào tb order
                 Order objOrder = new Order();
                 objOrder.Name = "Đơn hàng -" + objOrder .Id+ DateTime.Now.ToString("yyyyMMddHHss");
-                objOrder.Name = "Đơn hàng -" + DateTime.Now.ToString("yyyyMMddHHss");
+                //objOrder.Name = "Đơn hàng -" + DateTime.Now.ToString("yyyyMMddHHss");
                 objOrder.UserId = int.Parse(Session["idUser"].ToString());
                 objOrder.OrderDate = DateTime.Now;
                 objOrder.Status = 1;
+                objOrder.TotalPrice = totalPrice;
                 db.Orders.Add(objOrder);
                 //luu thong tin
 				db.SaveChanges();
@@ -37,14 +45,14 @@ namespace VinStageStore.Controllers
 
                 //lay orderid moi tao de luu vao tb OrderItem
                 int orderId = objOrder.Id;
-
-                List<OrderItem> lstOrderItem = new List<OrderItem>();
+				List <OrderItem> lstOrderItem = new List<OrderItem>();
                 foreach (var item in lstCart) 
                 {
                     OrderItem orderItem = new OrderItem();
                     orderItem.Quantity = item.Quantity;
                     orderItem.OrderId = orderId;
                     orderItem.ProductId = item.Product.Id;
+
 					lstOrderItem.Add(orderItem);
 				}
                 db.OrderItems.AddRange(lstOrderItem);

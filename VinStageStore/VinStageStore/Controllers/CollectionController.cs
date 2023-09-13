@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,30 +9,28 @@ using VinStageStore.Models;
 
 namespace VinStageStore.Controllers
 {
-    public class CollectionController : Controller
-    {
+	public class CollectionController : Controller
+	{
 		VinStageShopEntities objModel = new VinStageShopEntities();
 		// GET: Collection
 
-		public ActionResult ProductCategory(int? Id) 
+		public ActionResult ProductCategory(int? Id, int? page)
 		{
-			var objCategpry = new List<Category>();
-			var objProduct = new List<Product>();
+			const int pageSize = 6;
+			var objProduct = (Id != null)
+				? objModel.Products.Where(n => n.CategoryId == Id).ToList()
+				: objModel.Products.ToList();
+			var objCategpry = objModel.Categories.ToList();
 
-			if (Id != null)
-			{
-				objProduct = objModel.Products.Where(n => n.CategoryId == Id).ToList();
-			}
-			else
-			{
-				objProduct = objModel.Products.ToList();
-			}
-			objCategpry = objModel.Categories.ToList();
+
+			int pageNumber = page ?? 1;
 			ProductCategory productCategory = new ProductCategory();
-			productCategory.ListProduct = objProduct;
+			productCategory.ListProduct = objProduct.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
 			productCategory.ListCategory = objCategpry;
+			productCategory.pageSize = pageSize;
+			ViewBag.CurrentPage = pageNumber;
 
 			return View(productCategory);
 		}
-    }
+	}
 }

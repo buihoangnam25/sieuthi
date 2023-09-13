@@ -11,5 +11,7 @@ namespace VinStageStore.Models
 		public List<Product> ListProduct { get; set; }
 
 		public List<Category> ListCategory { get; set; }
+
+		public int pageSize { get; set; }	
 	}
 }
