@@ -1,0 +1,53 @@
+﻿@model VinStageStore.Models.OrderItemOrder
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section id="main-content">
+    <section class="wrapper">
+        <div class="table-agile-info">
+
+            <h2>Chi tiet don hang</h2>
+
+
+
+            <h3>Ten don hang</h3>
+            <div>@Model.Order.Name</div>
+
+            <h3>Trang thai</h3>
+            <div>
+                @{
+                    string statusText = "";
+                    if (Model.Order.Status == 1)
+                    {
+                        statusText = "Chờ xác nhận";
+                    }
+                    else if (Model.Order.Status == 2)
+                    {
+                        statusText = "Đang giao hàng";
+                    }
+                    else if (Model.Order.Status == 3)
+                    {
+                        statusText = "Đã hoàn thành";
+                    }
+                    else if (Model.Order.Status == 4)
+                    {
+                        statusText = "Đã hủy";
+                    }
+
+                }
+                @statusText
+
+            </div>
+
+            <h3>San pham</h3>
+            @foreach (var item in Model.ListOrderItem)
+            {
+                <div>@item.Product.Name    @item.Quantity</div>
+                <div><img style="height:100px ;width:70px" src="~/Content/images/@item.Product.ImageUrl" alt="Image" /></div>
+            }
+
+        </div>
+    </section>
+</section>
+

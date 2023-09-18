@@ -19,16 +19,9 @@ namespace VinStageStore.Controllers
 
 			//lấy các sản phẩm liên quan 
 			var lstProduct = objModel.Products.Where(x => x.CategoryId == objProductDetail.CategoryId).ToList();
-
-
 			Products objProducts = new Products();
 			objProducts.objProductDetail = objProductDetail;
 			objProducts.lstRelatedProducts = lstProduct;
-
-
-
-
-
 			return View(objProducts);
         }
     }

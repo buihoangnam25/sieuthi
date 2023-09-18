@@ -48,9 +48,52 @@
                         @Model.objProductDetail.Description
                     </p>
                 </div>
+
+                <div class="w3agile_description">
+                    <h4>Hãng :</h4>
+                    <p>
+                        @{
+                            string SupplierText = "";
+                            if (Model.objProductDetail.SupplierId == 1)
+                            {
+                                SupplierText = "Vinamilk";
+                            }
+                            else if (Model.objProductDetail.SupplierId == 2)
+                            {
+                                SupplierText = "Nestle";
+                            }
+                            else if (Model.objProductDetail.SupplierId == 3)
+                            {
+                                SupplierText = "ACE COOK";
+                            }
+                            else if (Model.objProductDetail.SupplierId == 4)
+                            {
+                                SupplierText = "Pessi";
+                            }
+                            else if (Model.objProductDetail.SupplierId == 6)
+                            {
+                                SupplierText = "tiger";
+                            }
+                            else if (Model.objProductDetail.SupplierId == 9)
+                            {
+                                SupplierText = "Neptune";
+                            }
+                            else if (Model.objProductDetail.SupplierId == 10)
+                            {
+                                SupplierText = "Vinacodo - Hoa quả sạch";
+                            }
+                            else if (Model.objProductDetail.SupplierId == 11)
+                            {
+                                SupplierText = "Chinsu";
+                            }
+
+                        }
+                        @SupplierText
+                    </p>
+                </div>
                 <div class="snipcart-item block">
                     <div class="snipcart-thumb agileinfo_single_right_snipcart">
-                        <h4 class="m-sing">@string.Format("{0:#,0}" , Model.objProductDetail.Price ) VND</h4>
+                        <h4 class="m-sing">@string.Format("{0:#,0}", Model.objProductDetail.Price) VND</h4>
                     </div>
 
                     <div style="margin-bottom: 10px">

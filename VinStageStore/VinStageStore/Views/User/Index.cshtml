@@ -1,0 +1,61 @@
+﻿@model VinStageStore.Context.User
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2 style="margin-top:100px">Thông tin nhận hàng</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt style="margin-bottom:20px">
+               Tài khoản
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+
+            <dt style="margin-bottom:20px">
+                Email
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+
+            <dt style="margin-bottom:20px">
+               Tên
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FullName)
+            </dd>
+
+            <dt style="margin-bottom:20px">
+                Địa chỉ nhận hàng
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+               Số điện thoại
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+
+
+        </dl>
+    </div>
+    <p style="margin-bottom:20px">
+        @Html.ActionLink("Thay đổi", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Quay lại mua hàng", "Index", "Cart")
+    </p>
+</div>

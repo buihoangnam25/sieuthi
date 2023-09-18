@@ -92,7 +92,43 @@
                             <img style="height:100px ; width:70px" src="~/Content/images/@item.ImageDetail" alt="Image" />
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SupplierId)
+                            @{
+                                string SupplierText = "";
+                                if (item.SupplierId == 1)
+                                {
+                                    SupplierText = "Vinamilk";
+                                }
+                                else if (item.SupplierId == 2)
+                                {
+                                    SupplierText = "Nestle";
+                                }
+                                else if (item.SupplierId == 3)
+                                {
+                                    SupplierText = "ACE COOK";
+                                }
+                                else if (item.SupplierId == 4)
+                                {
+                                    SupplierText = "Pessi";
+                                }
+                                else if (item.SupplierId == 6)
+                                {
+                                    SupplierText = "tiger";
+                                }
+                                else if (item.SupplierId == 9)
+                                {
+                                    SupplierText = "Neptune";
+                                }
+                                else if (item.SupplierId == 10)
+                                {
+                                    SupplierText = "Vinacodo - Hoa quả sạch";
+                                }
+                                else if (item.SupplierId == 11)
+                                {
+                                    SupplierText = "Chinsu";
+                                }
+
+                            }
+                            @SupplierText
                         </td>
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

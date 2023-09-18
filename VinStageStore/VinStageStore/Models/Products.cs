@@ -10,5 +10,6 @@ namespace VinStageStore.Models
 	{
 		public Product objProductDetail { get; set; }
 		public List<Product> lstRelatedProducts { get; set; }
+		public Supplier Supplier { get; set; }
 	}
 }

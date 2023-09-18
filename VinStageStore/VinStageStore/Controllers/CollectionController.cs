@@ -14,7 +14,7 @@ namespace VinStageStore.Controllers
 		VinStageShopEntities objModel = new VinStageShopEntities();
 		// GET: Collection
 
-		public ActionResult ProductCategory(int? Id, int? page)
+		public ActionResult ProductCategory(int? Id, int? pages)
 		{
 			const int pageSize = 6;
 			var objProduct = (Id != null)

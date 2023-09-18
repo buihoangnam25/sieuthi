@@ -1,0 +1,106 @@
+﻿@model VinStageStore.Models.OrderItemCustomer
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="margin:35px">
+<h2>Đơn hàng</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Đơn hàng
+        </th>
+        <th>
+            Trang thái
+        </th>
+        <th>
+            Tổng giá
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model.ListOrder)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @{
+                    string statusText = "";
+                    if (item.Status == 1)
+                    {
+                        statusText = "Chờ xác nhận";
+                    }
+                    else if (item.Status == 2)
+                    {
+                        statusText = "Đang giao hàng";
+                    }
+                    else if (item.Status == 3)
+                    {
+                        statusText = "Đã hoàn thành";
+                    }
+                    else if (item.Status == 4)
+                    {
+                        statusText = "Đã hủy";
+                    }
+
+                }
+
+                @statusText
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                @if (item.Status != 4)
+                {
+                    @Html.ActionLink("Hủy Đơn Hàng", "Edit", new { id = item.Id })
+
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div style="margin-top:35px"></div>
+<h2>Danh sách sản phẩm đã mua</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Sản phẩm
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Số lượng
+        </th>
+    </tr>
+
+    @foreach (var item in Model.ListOrderItem)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                <img style="height:100px ; width:70px" src="~/Content/images/@item.Product.ImageDetail" alt="Image" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Product.Id})" class="button">Mua lại</a>
+            </td>
+        </tr>
+    }
+
+</table>
+</div>

@@ -195,6 +195,7 @@
     <Compile Include="Controllers\CollectionController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
@@ -204,6 +205,8 @@
     </Compile>
     <Compile Include="Models\CartModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\OrderItemCustomer.cs" />
+    <Compile Include="Models\OrderItemOrder.cs" />
     <Compile Include="Models\OrderUser.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\Products.cs" />
@@ -457,6 +460,7 @@
     <Content Include="Areas\Admin\Views\Suppliers\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Suppliers\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Suppliers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Details.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -490,6 +494,7 @@
     <Content Include="Views\Reviews\Create.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
