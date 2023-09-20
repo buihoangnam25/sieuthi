@@ -7,44 +7,88 @@
 <section id="main-content">
     <section class="wrapper">
         <div class="table-agile-info">
-            <h2>Chi tiết đơn hàng</h2>
+            <h2>Sản phẩm bán chạy nhất</h2>
+
+            @*<table class="table">
+            <tr>
+                <th>
+                   Sản phẩm
+                </th>
+                <th>
+                    Số lượng
+                </th>
+
+                <th>
+                   Đơn hàng
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.Name)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>*@
+
+
+            @*sử dụng LINQ để nhóm các mục theo item.Product.Name, 
+            tính tổng item.Quantity cho từng nhóm và tạo một danh sách các item.Order.Name tương ứng với mỗi nhóm. 
+            Sau đó sử dụng foreach để hiển thị thông tin nhóm trong bảng*@
+            @{
+                var groupedItems = Model.GroupBy(item => item.Product.Name).Select(group => new
+                {
+                    ProductName = group.Key, // cùng tên sẽ gộp lại thành 1 bằng phương thức .Key
+                    TotalQuantity = group.Sum(item => item.Quantity),
+                    //Orders = group.Select(item => item.Order.Name)
+                }).OrderByDescending(item => item.TotalQuantity).ToList();
+            }
 
             <table class="table">
                 <tr>
                     <th>
-                       Đơn hàng
+                        Sản phẩm
                     </th>
                     <th>
-                        Số lượng
+                        Lượt mua
                     </th>
-
-                    <th>
-                       Sản phẩm
-                    </th>
+                    @*<th>
+                        Đơn hàng
+                    </th>*@
                     <th></th>
                 </tr>
 
-                @foreach (var item in Model)
+                @foreach (var groupedItem in groupedItems)
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Order.Name)
+                            @groupedItem.ProductName
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Quantity)
+                            @groupedItem.TotalQuantity
                         </td>
-
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Product.Name)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                        </td>
+                        @*<td>
+                            @string.Join(", ", groupedItem.Orders)
+                        </td>*@
                     </tr>
                 }
-
             </table>
         </div>
     </section>
