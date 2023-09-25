@@ -11,5 +11,7 @@ namespace VinStageStore.Models
 		public int User { get; set; }
 
 		public List<Order> ListOrder { get; set; }
+
+		public List<Product> ListProduct { get; set; }
 	}
 }
