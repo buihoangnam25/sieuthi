@@ -16,10 +16,29 @@ namespace VinStageStore.Areas.Admin.Controllers
         private VinStageShopEntities db = new VinStageShopEntities();
 
         // GET: Admin/Orders
-        public ActionResult Index()
+        public ActionResult Index(string sortBy)
         {
-            var orders = db.Orders.Include(o => o.User);
-            return View(orders.ToList());
+            var orders = db.Orders.Include(o => o.User).OrderBy(o => o.Status);
+
+			switch (sortBy)
+			{
+				case "TotalPriceAsc":
+					orders = orders.OrderBy(o => o.TotalPrice);
+					break;
+				case "TotalPriceDesc":
+					orders = orders.OrderByDescending(o => o.TotalPrice);
+					break;
+				case "OrderDateAsc":
+					orders = orders.OrderBy(o => o.OrderDate);
+					break;
+				case "OrderDateDesc":
+					orders = orders.OrderByDescending(o => o.OrderDate);
+					break;
+				default:
+					break;
+			}
+
+			return View(orders.ToList());
         }
 
 		public ActionResult Details(int? id)
