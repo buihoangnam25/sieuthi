@@ -84,7 +84,17 @@ namespace VinStageStore.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(order).State = EntityState.Modified;
-                db.SaveChanges();
+
+				var orderEdit = db.Orders.Find(order.Id);
+				List<OrderItem> OrderItems = db.OrderItems.Where(n => n.OrderId == orderEdit.Id).ToList();
+
+				//xử lý : khi order chuyển sang trạng thái thành công thì quantity bên product cũng phải giảm
+				if (order.Status == 3)
+                {
+					UpdateProductQuantities(OrderItems , order);
+				}
+
+				db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserName", order.UserId);
@@ -125,5 +135,27 @@ namespace VinStageStore.Areas.Admin.Controllers
             }
             base.Dispose(disposing);
         }
-    }
+
+		private void UpdateProductQuantities(List<OrderItem> OrderItems , Order order)
+		{
+
+			foreach (var orderItem in OrderItems)
+			{
+				if (orderItem.Product != null && orderItem.Quantity > 0)
+				{
+					// Kiểm tra nếu trạng thái của đơn hàng đã chuyển thành 3 (thành công)
+					if (order.Status == 3)
+					{
+						// Giảm số lượng sản phẩm bên Products dựa trên OrderItem
+						var product = db.Products.Find(orderItem.ProductId);
+						if (product != null)
+						{
+							product.Quantity -= orderItem.Quantity;
+						}
+					}
+				}
+			}
+			db.SaveChanges();
+		}
+	}
 }
