@@ -17,7 +17,7 @@
             @using (Html.BeginForm("Index", "Products", FormMethod.Get))
             {
                 <p>
-                    @Html.TextBox("SearchString", ViewBag.CurrentFiler as string)
+                    @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
                     <input type="submit" value="Tìm kiếm" />
                 </p>
             }

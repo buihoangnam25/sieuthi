@@ -93,6 +93,11 @@ namespace VinStageStore.Controllers
 					// Check xem người dùng có phải là admin không..
 					bool hasRoleAdmin = data.Any(n => n.RoleId == 1);
 					Session["RoleAdmin"] = hasRoleAdmin ? data.Where(n => n.RoleId == 1) : null;
+
+
+					bool hasRoleSalesperson = data.Any(n => n.RoleId == 3);
+					Session["RoleSalesperson"] = hasRoleSalesperson ? data.Where(n => n.RoleId == 3) : null;
+
 					return RedirectToAction("Index");
 				}
 				else

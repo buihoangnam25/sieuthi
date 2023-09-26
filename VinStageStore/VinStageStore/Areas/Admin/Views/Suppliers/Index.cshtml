@@ -7,7 +7,7 @@
 <section id="main-content">
     <section class="wrapper">
         <div class="table-agile-info">
-            <h2>Index</h2>
+            <h2>Nhà cung cấp</h2>
 
             <p>
                 @Html.ActionLink("Create New", "Create")
@@ -62,11 +62,12 @@
                         <td>
                             @if (item.Status == true)
                             {
-                                @Html.Raw("Hoạt động")
+                                <span class="label label-success">Hoạt động</span>
                             }
                             else
                             {
-                                @Html.Raw("Dừng hoạt động")
+                                <span class="label label-success">Dừng hoạt động</span>
+                                
                             }
                         </td>
                         <td>

@@ -7,43 +7,47 @@
     <section class="wrapper">
         <div class="table-agile-info">
 
-            <h2>Chi tiet don hang</h2>
+            <h2>Chi tiết đơn hàng</h2>
+            <div style="margin-top:40px"></div>
 
 
+            <h3>Tên đơn hàng</h3>
 
-            <h3>Ten don hang</h3>
             <div>@Model.Order.Name</div>
-
-            <h3>Trang thai</h3>
+            <div style="margin-top:30px"></div>
+            <h3>Trạng thái</h3>
             <div>
                 @{
                     string statusText = "";
                     if (Model.Order.Status == 1)
                     {
                         statusText = "Chờ xác nhận";
+                        <span class="label label-success">@statusText</span>
                     }
                     else if (Model.Order.Status == 2)
                     {
                         statusText = "Đang giao hàng";
+                        <span class="label label-warning">@statusText</span>
                     }
                     else if (Model.Order.Status == 3)
                     {
                         statusText = "Đã hoàn thành";
+                        <span class="label label-info">@statusText</span>
                     }
                     else if (Model.Order.Status == 4)
                     {
                         statusText = "Đã hủy";
+                        <span class="label label-danger">@statusText</span>
                     }
 
                 }
-                @statusText
 
             </div>
-
-            <h3>San pham</h3>
+            <div style="margin-top:30px"></div>
+            <h3>Sản phẩm</h3>
             @foreach (var item in Model.ListOrderItem)
             {
-                <div>@item.Product.Name    @item.Quantity</div>
+                <div><b>@item.Product.Name</b>   <p>Số lượng:</p> @item.Quantity</div>
                 <div><img style="height:100px ;width:70px" src="~/Content/images/@item.Product.ImageUrl" alt="Image" /></div>
             }
 

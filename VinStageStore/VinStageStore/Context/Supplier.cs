@@ -28,6 +28,5 @@ namespace VinStageStore.Context
 		// tạo biến để có thể chọn file
 		[NotMapped]
 		public System.Web.HttpPostedFileBase ImageUpload { get; set; }
-
 	}
 }
