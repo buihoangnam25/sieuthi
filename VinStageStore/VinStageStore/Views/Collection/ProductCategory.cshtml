@@ -9,18 +9,28 @@
             <div class="categories">
                 <h2>DANH MỤC SẢN PHẨM</h2>
                 <ul class="cate">
+                    <li><i class="fa fa-arrow-right" aria-hidden="true"></i>Loại sản phẩm</li>
+
                     @foreach (var item in Model.ListCategory)
                     {
                         <li>@Html.ActionLink(item.Name, "ProductCategory", "Collection", new { @Id = item.Id }, null)</li>
                     }
+
                 </ul>
             </div>
         </div>
+
+
+
+
+
+
+
         <div class="col-md-8 products-right">
             <div class="products-right-grid">
                 <div class="products-right-grids">
                     <div class="sorting-left">
-                        @using (Html.BeginForm("Index", "Products", FormMethod.Get))
+                        @using (Html.BeginForm("ProductCategory", "Collection", FormMethod.Get))
                         {
                             <p>
                                 @Html.TextBox("SearchString", ViewBag.CurrentFiler as string)

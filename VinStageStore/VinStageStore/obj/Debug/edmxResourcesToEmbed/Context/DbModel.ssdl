@@ -25,7 +25,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserId" Type="int" />
-    <Property Name="OrderDate" Type="date" />
+    <Property Name="OrderDate" Type="datetime" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Status" Type="int" />
     <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="0" />

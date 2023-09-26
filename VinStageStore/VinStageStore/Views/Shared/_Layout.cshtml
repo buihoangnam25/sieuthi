@@ -57,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     {
                         <li>@Html.ActionLink("Đăng xuất", "Logout", "Home")</li>
                     }
-                    @if (Session["RoleAdmin"] != null)
+                    @if (Session["RoleAdmin"] != null || Session["RoleSalesperson"] != null)
                     {
                         <li>@Html.ActionLink("Trang chủ Admin", "Index", "Home", new { area = "Admin" }, null)</li>
                     }
@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </ul>
             </div>
             <div class="product_list_header">
-                    <a class="w3view-cart" href="~/Cart/Index"><i class="fa fa-cart-arrow-down" aria-hidden="true"><sub style="color:white" id="CartCount"></sub>@Session["count"]</i></a>
+                    <a class="w3view-cart" href="~/Cart/Index"><i class="fa fa-cart-arrow-down" aria-hidden="true"><sub style="color:white" id="CartCount">@Session["count"]</sub></i></a>
             </div>
             <div class="clearfix"> </div>
         </div>
