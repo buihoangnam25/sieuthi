@@ -24,5 +24,5 @@ namespace VinStageStore.Controllers
 			objProducts.lstRelatedProducts = lstProduct;
 			return View(objProducts);
         }
-    }
+	}
 }

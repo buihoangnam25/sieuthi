@@ -43,6 +43,10 @@
                     </th>
                     <th>
                         Kiểu
+
+                    </th>
+                    <th>
+                        Loại sản phẩm
                     </th>
                     <th>
                         Ảnh Chi Tiết
@@ -89,78 +93,13 @@
                             }
                         </td>
                         <td>
+                            @Html.DisplayFor(modelItem => item.Category.Name)
+                        </td>
+                        <td>
                             <img style="height:100px ; width:70px" src="~/Content/images/@item.ImageDetail" alt="Image" />
                         </td>
                         <td>
-                            @{
-                                string SupplierText = "";
-                                if (item.SupplierId == 1)
-                                {
-                                    SupplierText = "Vinamilk";
-                                }
-                                else if (item.SupplierId == 2)
-                                {
-                                    SupplierText = "Nestle";
-                                }
-                                else if (item.SupplierId == 3)
-                                {
-                                    SupplierText = "ACE COOK";
-                                }
-                                else if (item.SupplierId == 4)
-                                {
-                                    SupplierText = "Pessi";
-                                }
-                                else if (item.SupplierId == 6)
-                                {
-                                    SupplierText = "tiger";
-                                }
-                                else if (item.SupplierId == 9)
-                                {
-                                    SupplierText = "Neptune";
-                                }
-                                else if (item.SupplierId == 10)
-                                {
-                                    SupplierText = "Vinacodo - Hoa quả sạch";
-                                }
-                                else if (item.SupplierId == 11)
-                                {
-                                    SupplierText = "Chinsu";
-                                }
-                                else if (item.SupplierId == 15)
-                                {
-                                    SupplierText = "Vinacodo";
-                                }
-                                else if (item.SupplierId == 17)
-                                {
-                                    SupplierText = "Merino";
-                                }
-                                else if (item.SupplierId == 18)
-                                {
-                                    SupplierText = "Cái Lân";
-                                }
-                                else if (item.SupplierId == 19)
-                                {
-                                    SupplierText = "Rejoice";
-                                }
-                                else if (item.SupplierId == 20)
-                                {
-                                    SupplierText = "NumberOne";
-                                }
-                                else if (item.SupplierId == 21)
-                                {
-                                    SupplierText = "Siêu thị";
-                                }
-                                else if (item.SupplierId == 22)
-                                {
-                                    SupplierText = "Vinacook";
-                                }
-                                else if (item.SupplierId == 23)
-                                {
-                                    SupplierText = "Lavie";
-                                }
-
-                            }
-                            @SupplierText
+                            @Html.DisplayFor(modelItem => item.Supplier.Name)
                         </td>
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

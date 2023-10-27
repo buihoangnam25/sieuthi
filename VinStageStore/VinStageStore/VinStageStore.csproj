@@ -199,7 +199,6 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -286,99 +285,17 @@
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\skdslider.css" />
     <Content Include="Content\css\style.css" />
-    <Content Include="Content\images\1.png" />
-    <Content Include="Content\images\10.png" />
-    <Content Include="Content\images\11.jpg" />
-    <Content Include="Content\images\111.jpg" />
-    <Content Include="Content\images\12.png" />
-    <Content Include="Content\images\13.png" />
-    <Content Include="Content\images\14.png" />
-    <Content Include="Content\images\15.png" />
-    <Content Include="Content\images\16.png" />
-    <Content Include="Content\images\17.png" />
-    <Content Include="Content\images\2.png" />
-    <Content Include="Content\images\22.jpg" />
-    <Content Include="Content\images\3.png" />
-    <Content Include="Content\images\4.png" />
-    <Content Include="Content\images\44.jpg" />
-    <Content Include="Content\images\5.png" />
-    <Content Include="Content\images\6.png" />
-    <Content Include="Content\images\7.png" />
-    <Content Include="Content\images\8.png" />
-    <Content Include="Content\images\9.png" />
     <Content Include="Content\images\arrow.png" />
-    <Content Include="Content\images\b1.jpg" />
-    <Content Include="Content\images\b3.jpg" />
-    <Content Include="Content\images\bv1.png" />
-    <Content Include="Content\images\bv2.png" />
-    <Content Include="Content\images\bv3.png" />
-    <Content Include="Content\images\bv4.png" />
-    <Content Include="Content\images\bv5.png" />
-    <Content Include="Content\images\bv6.png" />
-    <Content Include="Content\images\bv7.png" />
-    <Content Include="Content\images\bv8.jpg" />
-    <Content Include="Content\images\bv8.png" />
-    <Content Include="Content\images\bv9.png" />
     <Content Include="Content\images\card.png" />
     <Content Include="Content\images\check.png" />
     <Content Include="Content\images\close_1.png" />
-    <Content Include="Content\images\gu1.png" />
-    <Content Include="Content\images\gu2.png" />
-    <Content Include="Content\images\gu3.png" />
-    <Content Include="Content\images\gu4.png" />
-    <Content Include="Content\images\gu5.png" />
-    <Content Include="Content\images\gu6.png" />
-    <Content Include="Content\images\gu7.png" />
-    <Content Include="Content\images\gu8.png" />
-    <Content Include="Content\images\gu9.png" />
-    <Content Include="Content\images\hh1.png" />
-    <Content Include="Content\images\hh2.png" />
-    <Content Include="Content\images\hh3.png" />
-    <Content Include="Content\images\hh4.png" />
-    <Content Include="Content\images\hh5.png" />
-    <Content Include="Content\images\hh6.png" />
-    <Content Include="Content\images\hh7.png" />
-    <Content Include="Content\images\hh8.png" />
-    <Content Include="Content\images\hh8_202308090424.png" />
-    <Content Include="Content\images\hh9.png" />
     <Content Include="Content\images\hot.png" />
     <Content Include="Content\images\icon1.png" />
     <Content Include="Content\images\icon2.png" />
     <Content Include="Content\images\nestlelogo.jpg" />
     <Content Include="Content\images\offer.png" />
-    <Content Include="Content\images\p2.jpg" />
-    <Content Include="Content\images\p3.jpg" />
-    <Content Include="Content\images\p4.jpg" />
-    <Content Include="Content\images\pc1.png" />
-    <Content Include="Content\images\pc2.png" />
-    <Content Include="Content\images\pc3.png" />
-    <Content Include="Content\images\pc4.png" />
-    <Content Include="Content\images\pc5.png" />
-    <Content Include="Content\images\pc6.png" />
-    <Content Include="Content\images\pc7.png" />
-    <Content Include="Content\images\pc8.png" />
-    <Content Include="Content\images\pc9.jpg" />
-    <Content Include="Content\images\pf1.png" />
-    <Content Include="Content\images\pf2.png" />
-    <Content Include="Content\images\pf3.png" />
-    <Content Include="Content\images\pf3_202308090442.png" />
-    <Content Include="Content\images\pf4.png" />
-    <Content Include="Content\images\pf5.png" />
-    <Content Include="Content\images\pf5_202308090352.png" />
-    <Content Include="Content\images\pf5_202308090352_202308090435.png" />
-    <Content Include="Content\images\pf6.png" />
-    <Content Include="Content\images\pf7.png" />
-    <Content Include="Content\images\pf8.png" />
-    <Content Include="Content\images\pf9.png" />
-    <Content Include="Content\images\si1.jpg" />
-    <Content Include="Content\images\si1_202308090353.jpg" />
-    <Content Include="Content\images\si1_202308090435.jpg" />
     <Content Include="Content\images\star.png" />
     <Content Include="Content\images\star1.png" />
-    <Content Include="Content\images\t1.jpg" />
-    <Content Include="Content\images\t2.jpg" />
-    <Content Include="Content\images\t3.jpg" />
-    <Content Include="Content\images\t4.jpg" />
     <Content Include="Content\images\tick.png" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\easing.js" />
@@ -449,13 +366,6 @@
     <Content Include="Areas\Admin\Views\Categories\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
-    <EntityDeploy Include="Context\dbModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Context\dbModel.edmx.diagram">
-      <DependentUpon>dbModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\Suppliers\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Suppliers\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Suppliers\Details.cshtml" />
@@ -467,6 +377,13 @@
     <Content Include="Areas\Admin\Views\Roles\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Roles\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Roles\Index.cshtml" />
+    <EntityDeploy Include="Context\dbModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Context\dbModel.edmx.diagram">
+      <DependentUpon>dbModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -497,7 +414,6 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
-    <Content Include="Views\Reviews\Create.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />

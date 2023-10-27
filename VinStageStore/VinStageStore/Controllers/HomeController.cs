@@ -17,8 +17,8 @@ namespace VinStageStore.Controllers
 		{
 			HomeModel homeModel = new HomeModel();
 			homeModel.ListCategory = objModel.Categories.ToList();
-			homeModel.ListProduct = objModel.Products.ToList();	
-			homeModel.ListSupplier = objModel.Suppliers.ToList();
+			homeModel.ListProduct = objModel.Products.ToList();
+			homeModel.ListSupplier = objModel.Suppliers.Where(s => s.Name != "Siêu thị").ToList();
 			return View(homeModel);
 		}
 

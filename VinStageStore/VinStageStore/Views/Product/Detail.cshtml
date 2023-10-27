@@ -111,9 +111,6 @@
                         </form>
                     </div>
                     <div class="snipcart-details agileinfo_single_right_details">
-                        @*<a href="@Url.Action("Create" ,"Reviews" , new {Id = Model.objProductDetail.Id })" class="button">Đánh giá sản phẩm</a>*@
-
-                        @Html.ActionLink("Đánh giá sản phẩm", "Reviews", new { Id = Model.objProductDetail.Id })
                     </div>
                 </div>
 
@@ -132,7 +129,7 @@
             {
                 <div class="col-md-3 top_brand_left-1">
                     <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid">
+                        <div class="agile_top_brand_left_grid" style="height:335.44px">
                             @if (item.Favourite == true)
                             {
                                 <div class="agile_top_brand_left_grid_pos">
