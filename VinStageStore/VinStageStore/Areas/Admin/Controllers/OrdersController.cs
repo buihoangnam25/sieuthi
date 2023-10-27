@@ -83,7 +83,13 @@ namespace VinStageStore.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(order).State = EntityState.Modified;
+                //Bỏ gắn userId để khi save vẫn lấy giữ nguyên giá trị của userID
+				var existingOrder = db.Orders.Find(order.Id);
+				existingOrder.OrderDate = order.OrderDate;
+				existingOrder.Name = order.Name;
+				existingOrder.TotalPrice = order.TotalPrice;
+				existingOrder.Status = order.Status;
+				db.Entry(existingOrder).State = EntityState.Modified;
 
 				var orderEdit = db.Orders.Find(order.Id);
 				List<OrderItem> OrderItems = db.OrderItems.Where(n => n.OrderId == orderEdit.Id).ToList();

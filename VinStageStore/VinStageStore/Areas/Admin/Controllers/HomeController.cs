@@ -16,7 +16,7 @@ namespace VinStageStore.Areas.Admin.Controllers
         {
             var lstOrder = db.Orders.ToList();
             int quantityUser = db.Users.Count();
-            var lstProduct = db.Products.Where(n => n.Quantity <= 100).OrderBy(n => n.Quantity).ToList();
+            var lstProduct = db.Products.Where(n => n.Quantity <= 10).OrderBy(n => n.Quantity).ToList();
 
             OrderUser orderUser = new OrderUser();
             orderUser.ListOrder = lstOrder;

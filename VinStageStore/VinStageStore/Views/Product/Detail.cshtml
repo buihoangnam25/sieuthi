@@ -38,7 +38,7 @@
         <div class="agileinfo_single">
 
             <div class="col-md-4 agileinfo_single_left">
-                <img id="example" src="~/Content/images/@Model.objProductDetail.ImageDetail" alt=" " class="img-responsive">
+                <img id="example" src="~/Content/images/@Model.objProductDetail.ImageDetail" alt=" " class="img-responsive" style="height:400px;width:300px">
             </div>
             <div class="col-md-8 agileinfo_single_right">
                 <h2>@Model.objProductDetail.Name</h2>
@@ -49,7 +49,7 @@
                     </p>
                 </div>
 
-                <div class="w3agile_description">
+                @*<div class="w3agile_description">
                     <h4>Hãng :</h4>
                     <p>
                         @{
@@ -90,14 +90,14 @@
                         }
                         @SupplierText
                     </p>
-                </div>
+                </div>*@
                 <div class="snipcart-item block">
                     <div class="snipcart-thumb agileinfo_single_right_snipcart">
                         <h4 class="m-sing">@string.Format("{0:#,0}", Model.objProductDetail.Price) VND</h4>
                     </div>
 
                     <div style="margin-bottom: 10px">
-                        <h5 style="float:left ; margin-right:7px ; margin-top:6px">Số lượng </h5> <input style="width:50px" id="ipQuantity" type="number" name="quantity" min="1" value="1">
+                        <h5 style="float:left ; margin-right:7px ; margin-top:6px">Số lượng </h5> <input style="width:50px" id="ipQuantity" type="number" name="quantity" min="1" max="10" value="1">
                     </div>
 
                     <div>
@@ -111,7 +111,9 @@
                         </form>
                     </div>
                     <div class="snipcart-details agileinfo_single_right_details">
-                        <a href="@Url.Action("Create" ,"Reviews" , new {Id = Model.objProductDetail.Id })" class="button">Đánh giá sản phẩm</a>
+                        @*<a href="@Url.Action("Create" ,"Reviews" , new {Id = Model.objProductDetail.Id })" class="button">Đánh giá sản phẩm</a>*@
+
+                        @Html.ActionLink("Đánh giá sản phẩm", "Reviews", new { Id = Model.objProductDetail.Id })
                     </div>
                 </div>
 
@@ -142,7 +144,7 @@
                                 <figure>
                                     <div class="snipcart-item block">
                                         <div class="snipcart-thumb">
-                                            <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Id})"><img title=" " alt=" " src="~/Content/images/@item.ImageUrl"></a>
+                                            <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Id})"><img title=" " alt=" " src="~/Content/images/@item.ImageUrl" style="height:150px;width:150px"></a>
                                             <p>@item.Name</p>
                                             <div class="stars">
                                                 <i class="fa fa-star blue-star" aria-hidden="true"></i>
@@ -151,7 +153,7 @@
                                                 <i class="fa fa-star blue-star" aria-hidden="true"></i>
                                                 <i class="fa fa-star gray-star" aria-hidden="true"></i>
                                             </div>
-                                            <h4>@item.PriceSale <span>@item.Price</span></h4>
+                                            <h4>@item.Price</h4>
                                         </div>
                                         <div class="snipcart-details top_brand_home_details">
                                             <form action="#" method="post">
@@ -165,7 +167,7 @@
                                                     <input type="hidden" name="currency_code" value="USD">
                                                     <input type="hidden" name="return" value=" ">
                                                     <input type="hidden" name="cancel_return" value=" ">
-                                                    <input type="submit" name="submit" value="Add to cart" class="button">
+                                                    <a href="@Url.Action("Detail" ,"Product" , new {Id = item.Id})" class="button">Xem sản phẩm</a>
                                                 </fieldset>
                                             </form>
                                         </div>
@@ -181,3 +183,4 @@
         </div>
     </div>
 </div>
+

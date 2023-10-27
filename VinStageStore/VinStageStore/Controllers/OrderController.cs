@@ -21,15 +21,16 @@ namespace VinStageStore.Controllers
 
 			List<Order> orders = db.Orders.Where(n => n.UserId == idUser).ToList();
 			List<OrderItem> orderItems = new List<OrderItem>();
+			OrderItemCustomer orderItemCustomer = new OrderItemCustomer();
+			orderItemCustomer.ListOrder = orders;
+
+			orders = orders.Where(n => n.Status == 3).ToList();
 			foreach (var order in orders)
 			{
 				List<OrderItem> itemsForOrder = db.OrderItems.Where(oi => oi.OrderId == order.Id).ToList();
 				orderItems.AddRange(itemsForOrder);
 			}
-
-			OrderItemCustomer orderItemCustomer = new OrderItemCustomer();
 			orderItemCustomer.ListOrderItem = orderItems;
-			orderItemCustomer.ListOrder = orders;
 
 			return View(orderItemCustomer);
 

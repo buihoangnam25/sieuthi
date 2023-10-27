@@ -25,7 +25,7 @@ namespace VinStageStore.Controllers
 
 			int pageNumber = page ?? 1;
 			ProductCategory productCategory = new ProductCategory();
-			productCategory.ListProduct = objProduct.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+			productCategory.ListProduct = objProduct.Skip((pageNumber - 1) * pageSize).Take(12).ToList();
 			productCategory.ListCategory = objCategpry;
 			productCategory.pageSize = pageSize;
 			ViewBag.CurrentPage = pageNumber;
